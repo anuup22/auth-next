@@ -1,12 +1,11 @@
-import { connect } from "http2";
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI!);
+    mongoose.connect(process.env.MONGO_URI!); // just removed await!!
     const connection = mongoose.connection;
 
-    connection.on('connected', () => {
+    connection.once('connected', () => {
       console.log('Connected to MongoDB');
     });
     connection.on('error', (error) => {
