@@ -5,7 +5,7 @@ import { getUser } from "@/helpers/getUser";
 
 connectDB()
 
-export const POST = async (req: NextRequest) => {
+export const GET = async (req: NextRequest) => {
     //extract data from token
     const userId = await getUser(req);
 
