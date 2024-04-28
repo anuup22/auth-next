@@ -32,7 +32,7 @@ export const POST = async (req: NextRequest) => {
 
         const response = NextResponse.json({ message: "Login successful", success: true, token });
 
-        response.cookies.set("auth", token, {httpOnly: true});
+        response.cookies.set("authToken", token, {httpOnly: true});
         return response;
     }
     catch (error: any) {
